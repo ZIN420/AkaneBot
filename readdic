@@ -1,0 +1,32 @@
+"""
+f = open("Discord Logging/2018-04-04/THE_iDOLMSTER_Million_Live_Theater_Days.txt", 'r', encoding='utf-8')
+"""
+import datetime
+import glob
+import os
+from collections import defaultdict
+import json
+
+spokenusers = defaultdict(lambda: {}) # List of users who have spoken today
+
+today = str(datetime.date.today())
+path = 'Discord Logging/' + today
+print(path)
+# global spokenusers
+for filename in glob.glob(os.path.join(path, '*.txt')):
+
+    with open(filename, 'r', encoding = 'utf-8') as f:
+        d = f.read()
+
+    out = "{" + d[:-1] + "}"
+    print(out)
+
+
+    dic = json.loads(out.strip())
+    print(dic)
+    guild = os.path.basename(filename[:-4])
+    print(guild)
+    spokenusers[guild].update(dic)
+
+    print(guild + " loaded succesfully")
+    print(spokenusers[guild])# Upon starting, attempt to reload any lists from today
