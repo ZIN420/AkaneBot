@@ -1,0 +1,2 @@
+# AkaneBot
+akane discord bot
