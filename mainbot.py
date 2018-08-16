@@ -94,6 +94,7 @@ async def userpie(ctx):
             print(e)
             pass
     print(rolecol)
+    # stuff
 
     labels = []
     for x in rolecol:
@@ -166,7 +167,7 @@ async def on_message(message):
 async def save_time(ctx):
     ##Save Guild Time Log
     for x in spokenusers:
-        file_path = "Discord Logging/" + str(datetime.date.today()) + "/"
+        file_path = "Discord Logging/" + str(datetime.date.today()) 	+ "/"
         with open(file_path + x + ".txt", 'w') as o:
             o.write(x + ': "' + spokenusers[x] + '",')
     await ctx.send("time saved")
@@ -178,5 +179,5 @@ if __name__ == "__main__":
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
-
+# other stuff
 bot.run(config.TOKEN)
